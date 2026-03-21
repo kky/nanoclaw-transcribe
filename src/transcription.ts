@@ -99,6 +99,7 @@ async function transcribeApi(audioBuffer: Buffer): Promise<string | null> {
 /**
  * Transcribe an audio buffer to text.
  * Uses local whisper.cpp or OpenAI Whisper API based on TRANSCRIPTION_BACKEND env var.
+ * Channel-agnostic — any channel can call this with a raw audio buffer.
  */
 export async function transcribe(audioBuffer: Buffer): Promise<string | null> {
   if (TRANSCRIPTION_BACKEND === 'api') {
